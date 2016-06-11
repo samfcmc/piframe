@@ -1,0 +1,50 @@
+{
+  "name": "piframe",
+  "version": "1.0.0",
+  "description": "Small app to run in a raspberry pi to make it act like a digital frame (and maybe more stuff)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "raspberry",
+    "pi",
+    "frame",
+    "digital",
+    "photos",
+    "pictures"
+  ],
+  "author": "Samuel Coelho",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common":  "2.0.0-rc.1",
+    "@angular/compiler":  "2.0.0-rc.1",
+    "@angular/core":  "2.0.0-rc.1",
+    "@angular/http":  "2.0.0-rc.1",
+    "@angular/platform-browser":  "2.0.0-rc.1",
+    "@angular/platform-browser-dynamic":  "2.0.0-rc.1",
+    "@angular/router":  "2.0.0-rc.1",
+    "@angular/router-deprecated":  "2.0.0-rc.1",
+    "@angular/upgrade":  "2.0.0-rc.1",
+    "systemjs": "0.19.27",
+    "core-js": "^2.4.0",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.6",
+    "zone.js": "^0.6.12",
+    "angular2-in-memory-web-api": "0.0.11",
+    "bootstrap": "^3.3.6"
+  },
+  "devDependencies": {
+    "asar": "^0.11.0",
+    "del": "^2.2.0",
+    "electron-prebuilt": "^0.37.8",
+    "fs-jetpack": "^0.8.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.13.0",
+    "q": "^1.4.1",
+    "rcedit": "^0.5.0",
+    "typescript": "^1.8.10",
+    "typings":"^0.8.1"
+  }
+}
