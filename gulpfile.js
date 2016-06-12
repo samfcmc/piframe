@@ -14,14 +14,18 @@ const config = {
         path: 'build',
         app: 'build/app',
         lib: 'build/lib',
-		style: 'build/style'   
+		style: 'build/style',
+        fonts: 'build/fonts'   
     },
     src: {
 		scripts: 'app/**/*.ts',
         app: 'app',
         html: 'app/**/*.html',
 		style: 'app/main.scss',
-		styles: 'app/**/*.scss'
+		styles: 'app/**/*.scss',
+        bootstrap: {
+            fonts: 'node_modules/bootstrap/fonts/**/*'
+        }
     }
 };
 
@@ -79,7 +83,14 @@ gulp.task('copy:index', function() {
 		'index.html'
 	])
 	.pipe(gulp.dest(config.build.path));
-})
+});
+
+gulp.task('copy:fonts', function() {
+    return gulp.src([
+        config.src.bootstrap.fonts
+    ])
+    .pipe(gulp.dest(config.build.fonts));
+});
 
 // Reload
 gulp.task('reload:scripts', ['compile:script'], function() {
@@ -115,7 +126,7 @@ gulp.task('watch', ['run'], function() {
 
 gulp.task('build', ['copy:libs', 
 	'copy:html', 'copy:index', 
-	'copy:systemjs', 
+	'copy:systemjs', 'copy:fonts', 
 	'compile:script', 'compile:style']);
 
 gulp.task('dev', ['watch']);
