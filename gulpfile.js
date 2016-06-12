@@ -66,21 +66,31 @@ gulp.task('copy:libs', function() {
     .pipe(gulp.dest(config.build.lib))
 });
 
-// Copy assets
-gulp.task('copy:assets', function() {
+// Copy HTML
+gulp.task('copy:html', function() {
   return gulp.src([
-      'index.html',
       config.src.html
     ])
-    .pipe(gulp.dest(config.build.path));
+    .pipe(gulp.dest(config.build.app));
 });
+
+gulp.task('copy:index', function() {
+	return gulp.src([
+		'index.html'
+	])
+	.pipe(gulp.dest(config.build.path));
+})
 
 // Reload
 gulp.task('reload:scripts', ['compile:script'], function() {
 
 });
 
-gulp.task('reload:html', ['copy:assets'], function() {
+gulp.task('reload:html', ['copy:html'], function() {
+
+});
+
+gulp.task('reload:index', ['copy:index'], function() {
 
 });
 
@@ -98,12 +108,14 @@ gulp.task('compile:style', function() {
 // Watch
 gulp.task('watch', ['run'], function() {
 	gulp.watch(config.src.scripts, ['reload:scripts']);
-	gulp.watch([config.src.html, 'index.html'], ['reload:html']);
+	gulp.watch([config.src.html], ['reload:html']);
+	gulp.watch(['index.html'], ['reload:index'])
 	gulp.watch([config.src.styles], ['reload:style']);
 });
 
 gulp.task('build', ['copy:libs', 
-	'copy:assets', 'copy:systemjs', 
+	'copy:html', 'copy:index', 
+	'copy:systemjs', 
 	'compile:script', 'compile:style']);
 
 gulp.task('dev', ['watch']);
