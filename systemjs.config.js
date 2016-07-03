@@ -13,13 +13,16 @@
     'app':                        'app', // 'dist',
     '@angular':                   paths.lib + '/@angular',
     'angular2-in-memory-web-api': paths.lib + '/angular2-in-memory-web-api',
-    'rxjs':                       paths.lib + '/rxjs'
+    'rxjs':                       paths.lib + '/rxjs',
+    'angular2-grid':              paths.lib + '/angular2-grid/dist',
+    'text':                       paths.lib + '/systemjs-plugin-text/text.js'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
+    'angular2-grid':              { main: 'main.js', defaultExtension: 'js' }
   };
   var ngPackageNames = [
     'common',
@@ -46,7 +49,8 @@
   ngPackageNames.forEach(setPackageConfig);
   var config = {
     map: map,
-    packages: packages
+    packages: packages,
+    baseUrl: 'app'
   }
   System.config(config);
 })(this);

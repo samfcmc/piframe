@@ -1,6 +1,4 @@
 
-
-
 <div class="container">
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -16,36 +14,19 @@
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
-	<div class="row">
-	
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			<button type="button" class="btn btn-lg btn-default">
-				<span class="glyphicon glyphicon-picture"></span>
-				<h4>
-					Photo Frame
-				</h4>
-			</button>
-			<button type="button" class="btn btn-lg btn-default">
-				<span class="glyphicon glyphicon-play"></span>
-				<h4>
-					Games and Emulators
-				</h4>
-			</button>
-			<button type="button" class="btn btn-lg btn-default">
-				<span class="glyphicon glyphicon-facetime-video"></span>
-				<h4>
-					Media Center
-				</h4>
-			</button>
+	<div [ngGrid]="{'resizeable': false, 'margins': [5, 10]}">
+    <div *ngFor="let item of grid; let i = index" [(ngGridItem)]="item.config"
+	class="tile">
+        <div class="tile-content-{{i}}">
 			
 		</div>
-		
-	</div>
+    </div>
+</div>
 	
 </div>
