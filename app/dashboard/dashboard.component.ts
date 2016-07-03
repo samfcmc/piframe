@@ -2,11 +2,11 @@ import {Component, DynamicComponentLoader, Injector, Input} from '@angular/core'
 import {NgGrid, NgGridItem} from 'angular2-grid';
 import {Test} from '../test/test';
 import {GRID} from '../grid/grid';
-import {Tile} from '../tile/tile';
+import {Tile} from '../tiles/tile';
 
 @Component({
 	selector: 'dashboard',
-	templateUrl: 'app/dashboard/dashboard.html',
+	templateUrl: 'dashboard/dashboard.html',
 	directives: [NgGrid, NgGridItem]
 })
 export class Dashboard {

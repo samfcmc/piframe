@@ -20,13 +20,13 @@
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
-	<div [ngGrid]="{'resizeable': false, 'margins': [5, 10]}">
-    <div *ngFor="let item of grid; let i = index" [(ngGridItem)]="item.config"
-	class="tile">
-        <div class="tile-content-{{i}}">
-			
+	<div [ngGrid]="{'resizeable': false}">
+		<div *ngFor="let item of grid; let i = index" [(ngGridItem)]="item.config"
+		class="tile">
+			<div class="tile-content-{{i}}">
+				
+			</div>
 		</div>
-    </div>
-</div>
+	</div>
 	
 </div>

@@ -10,7 +10,7 @@
   }
 
   var map = {
-    'app':                        'app', // 'dist',
+    'app':                        '', // 'dist',
     '@angular':                   paths.lib + '/@angular',
     'angular2-in-memory-web-api': paths.lib + '/angular2-in-memory-web-api',
     'rxjs':                       paths.lib + '/rxjs',

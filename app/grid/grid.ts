@@ -1,12 +1,7 @@
-import {Tile} from '../tile/tile';
+import {Tile} from '../tiles/tile';
+import {FrameTile} from '../tiles/frame/frame.tile';
 import {Test} from '../test/test';
 
 export const GRID: Array<Tile> = [
-	{
-		config: {
-			sizex: 1,
-			sizey: 1
-		},
-		component: Test
-	}
+	FrameTile
 ]

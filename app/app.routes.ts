@@ -1,4 +1,4 @@
-import {Dashboard} from './dashboard/dashboard';
+import {Dashboard} from './dashboard/dashboard.component';
 
 export const ROUTES = [
     {
@@ -6,7 +6,7 @@ export const ROUTES = [
         component: Dashboard
     },
     {
-        path: '*',
+        path: '/',
         component: Dashboard
     }
 ] 

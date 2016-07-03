@@ -12,10 +12,11 @@ const tscConfig = require('./tsconfig.json');
 const config = {
     build: {
         path: 'build',
-        app: 'build/app',
-        lib: 'build/lib',
-		style: 'build/style',
-        fonts: 'build/fonts'   
+        app: 'build',
+        lib: 'build/assets/lib',
+		style: 'build/assets/style',
+        fonts: 'build/assets/fonts',
+        assets: 'build/assets' 
     },
     src: {
 		scripts: 'app/**/*.ts',
@@ -25,7 +26,8 @@ const config = {
 		styles: 'app/**/*.scss',
         bootstrap: {
             fonts: 'node_modules/bootstrap/fonts/**/*'
-        }
+        },
+        assets: 'assets/**/*'
     }
 };
 
@@ -85,12 +87,21 @@ gulp.task('copy:index', function() {
 	.pipe(gulp.dest(config.build.path));
 });
 
+// Copy fonts
 gulp.task('copy:fonts', function() {
     return gulp.src([
         config.src.bootstrap.fonts
     ])
     .pipe(gulp.dest(config.build.fonts));
 });
+
+// Copy other assets
+gulp.task('copy:assets', function() {
+    return gulp.src([
+        config.src.assets
+    ])
+    .pipe(gulp.dest(config.build.assets));
+})
 
 // Reload
 gulp.task('reload:scripts', ['compile:script'], function() {
@@ -109,6 +120,10 @@ gulp.task('reload:style', ['compile:style'], function() {
 
 });
 
+gulp.task('reload:assets', ['copy:assets'], function() {
+
+});
+
 // SASS
 gulp.task('compile:style', function() {
 	return gulp.src(config.src.style)
@@ -122,11 +137,13 @@ gulp.task('watch', ['run'], function() {
 	gulp.watch([config.src.html], ['reload:html']);
 	gulp.watch(['index.html'], ['reload:index'])
 	gulp.watch([config.src.styles], ['reload:style']);
+    gulp.watch([config.src.assets], ['copy:assets']);
 });
 
 gulp.task('build', ['copy:libs', 
 	'copy:html', 'copy:index', 
-	'copy:systemjs', 'copy:fonts', 
+	'copy:systemjs', 'copy:fonts',
+    'copy:assets', 
 	'compile:script', 'compile:style']);
 
 gulp.task('dev', ['watch']);

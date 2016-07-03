@@ -1,11 +1,13 @@
 <html>
   <head>
-    <title>Angular 2 QuickStart</title>
+    <title>Pi Frame</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1">    
 
-    <link rel="stylesheet" type="text/css" href="style/main.css">
-    <base href="./app">
+    <link rel="stylesheet" type="text/css" href="assets/style/main.css">
+    <script>
+      document.write('<base href="' + document.location + '" />');
+    </script>
   </head>
 
   <!-- 3. Display the application -->
@@ -13,10 +15,10 @@
     <app>Loading...</app>
 
     <!-- 1. Load libraries -->
-    <script src="lib/shim.min.js"></script>
-    <script src="lib/zone.js"></script>
-    <script src="lib/Reflect.js"></script>
-    <script src="lib/system.src.js"></script>
+    <script src="assets/lib/shim.min.js"></script>
+    <script src="assets/lib/zone.js"></script>
+    <script src="assets/lib/Reflect.js"></script>
+    <script src="assets/lib/system.src.js"></script>
 
     <!-- 2. Configure SystemJS -->
     <script src="systemjs.config.js"></script>
